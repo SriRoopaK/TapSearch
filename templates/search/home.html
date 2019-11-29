@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+    <style>
+         .card{
+        background-color: #ffffcc;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .title{
+        color:Green;
+        }
+        .subtitle{
+        color: #009900;
+        }
+        .btn-group button {
+  background-color: #4CAF50;
+  border: 1px solid green;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: center;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+a{
+color: #ffffff;
+}
+    </style>
+</head>
+<body>
+<div class="title">
+    <p><center><font size="20">Tap Search</font></center></p>
+</div>
+<div class="card">
+    <p><center><b>{{status}}</b></center></p>
+</div>
+<br>
+<div class="btn-group">
+    <center>
+     <div class="card">
+         <p><center>Tap to add documents to index..!!</center></p>
+         <br>
+         <button><a href="{%url 'index' %}">Index</a></button>
+         <br>
+         <br>
+     </div>
+     <br>
+     <div class="card">
+         <p><center>Tap to search for documents containing a word..!!</center></p>
+         <br>
+         <button><a href="{%url 'search' %}">Search</a></button>
+         <br>
+         <br>
+     </div>
+        <br>
+     <div class="card">
+         <p><center>Tap to clear all documents..!!</center></p>
+         <br>
+         <button><a href="{%url 'clear' %}">Clear</a></button>
+         <br>
+         <br>
+     </div>
+    </center>
+</div>
+</body>
+</html>

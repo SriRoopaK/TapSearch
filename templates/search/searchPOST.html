@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+    <style>
+         .card{
+        background-color: #ffffcc;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .title{
+        color:Green;
+
+        }
+        .subtitle{
+        color: #009900;
+        }
+        .btn-group button {
+  background-color: #4CAF50;
+  border: 1px solid green;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: center;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+a{
+color: #ffffff;
+}
+    </style>
+</head>
+<body>
+<div class="title">
+    <p><center>Retrieving results for word "{{word}}"</center></p>
+</div>
+{% for document in documents %}
+<div class="card">
+    <div class="card-content">
+        <p>{{document}}</p>
+    </div>
+</div>
+<br>
+<br>
+{% endfor %}
+<div class="btn-group">
+    <center>
+        <button><a href="{%url 'index' %}">Index</a></button>
+        <button><a href="{%url 'search' %}">Search</a></button>
+        <button><a href="{%url 'home' %}">Home</a></button>
+    </center>
+    <br>
+    <br>
+</div>
+</body>
+</html>
