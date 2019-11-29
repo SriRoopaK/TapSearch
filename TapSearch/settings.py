@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -88,15 +89,17 @@ DATABASES = {
     #     'USER': "root",
     #     'PASSWORD': "Roopa@98"
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'sample_db'),
-        'HOST': 'localhost',
-        'USER': os.environ.get('DB_USER', 'sample_user'),
-        'PASSWORD': os.environ.get('DB_PASS', 'spl'),
-        'PORT': '5433'
-    }
-
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('DB_NAME', 'sample_db'),
+#         'HOST': 'localhost',
+#         'USER': os.environ.get('DB_USER', 'sample_user'),
+#         'PASSWORD': os.environ.get('DB_PASS', 'spl'),
+#         'PORT': '5433'
+#     }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 
